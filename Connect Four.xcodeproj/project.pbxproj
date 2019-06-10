@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DC047F7022AECA9600A298AC /* AlphaBetaAIPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC047F6F22AECA9600A298AC /* AlphaBetaAIPlayer.swift */; };
 		DC7C4D1F22AD5A8800E51B20 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7C4D1E22AD5A8800E51B20 /* AppDelegate.swift */; };
 		DC7C4D2122AD5A8800E51B20 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = DC7C4D2022AD5A8800E51B20 /* GameScene.sks */; };
 		DC7C4D2522AD5A8800E51B20 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7C4D2422AD5A8800E51B20 /* GameScene.swift */; };
@@ -32,6 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DC047F6F22AECA9600A298AC /* AlphaBetaAIPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlphaBetaAIPlayer.swift; sourceTree = "<group>"; };
 		DC7C4D1B22AD5A8800E51B20 /* Connect Four.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Connect Four.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC7C4D1E22AD5A8800E51B20 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DC7C4D2022AD5A8800E51B20 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 				DC7C4D4E22AD5EE300E51B20 /* GameOverScene.sks */,
 				DC7C4D5022AD5F7500E51B20 /* GameDelegate.swift */,
 				DC7C4D5222AD606700E51B20 /* RandomAIPlayer.swift */,
+				DC047F6F22AECA9600A298AC /* AlphaBetaAIPlayer.swift */,
 			);
 			path = "Connect Four";
 			sourceTree = "<group>";
@@ -191,6 +194,7 @@
 			files = (
 				DC7C4D4722AD5E2D00E51B20 /* Player.swift in Sources */,
 				DC7C4D4922AD5E6400E51B20 /* NetworkPlayer.swift in Sources */,
+				DC047F7022AECA9600A298AC /* AlphaBetaAIPlayer.swift in Sources */,
 				DC7C4D4D22AD5EC100E51B20 /* GameOverScene.swift in Sources */,
 				DC7C4D2522AD5A8800E51B20 /* GameScene.swift in Sources */,
 				DC7C4D2722AD5A8800E51B20 /* GameViewController.swift in Sources */,

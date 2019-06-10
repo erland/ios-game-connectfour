@@ -15,7 +15,11 @@ class GameViewController: UIViewController, GameDelegate {
     var network : NetworkProtocol?
     var matchMakingScene : MatchMakingScene?
     var opponentPlayer : Player?
-    var randomAIPlayer : RandomAIPlayer?
+    var veryEasyAIPlayer : RandomAIPlayer?
+    var easyAIPlayer : AlphaBetaAIPlayer?
+    var normalAIPlayer : AlphaBetaAIPlayer?
+    var hardAIPlayer : AlphaBetaAIPlayer?
+    var extremeAIPlayer : AlphaBetaAIPlayer?
     var playerState: Marker.State?
     
     override func viewDidLoad() {
@@ -42,9 +46,17 @@ class GameViewController: UIViewController, GameDelegate {
         matchMakingScene = scene
         // Present the scene.
         skView.presentScene(scene)
-        randomAIPlayer = RandomAIPlayer(name: "AI (very easy)")
+        veryEasyAIPlayer = RandomAIPlayer(name: "AI (very easy)")
         matchMakingScene?.addOpponent(name: "AI (very easy)")
-        
+        easyAIPlayer = AlphaBetaAIPlayer(name: "AI (easy)", depth: 1, delay: 0)
+        matchMakingScene?.addOpponent(name: "AI (easy)")
+        normalAIPlayer = AlphaBetaAIPlayer(name: "AI (normal)", depth: 2, delay: 0)
+        matchMakingScene?.addOpponent(name: "AI (normal)")
+        hardAIPlayer = AlphaBetaAIPlayer(name: "AI (hard)", depth: 3, delay: 0)
+        matchMakingScene?.addOpponent(name: "AI (hard)")
+        extremeAIPlayer = AlphaBetaAIPlayer(name: "AI (extreme)", depth: 5)
+        matchMakingScene?.addOpponent(name: "AI (extreme)")
+
         if let network = network {
             for player in network.players {
                 matchMakingScene?.addOpponent(name: player)
@@ -79,7 +91,15 @@ class GameViewController: UIViewController, GameDelegate {
     func selectedOpponent(player: String, state: Marker.State) {
         matchMakingScene = nil
         if player == "AI (very easy)" {
-            opponentPlayer = randomAIPlayer
+            opponentPlayer = veryEasyAIPlayer
+        }else if player == "AI (easy)" {
+            opponentPlayer = easyAIPlayer
+        }else if player == "AI (normal)" {
+            opponentPlayer = normalAIPlayer
+        }else if player == "AI (hard)" {
+            opponentPlayer = hardAIPlayer
+        }else if player == "AI (extreme)" {
+            opponentPlayer = extremeAIPlayer
         }else {
             opponentPlayer = NetworkPlayer(network: network!, name: player)
         }

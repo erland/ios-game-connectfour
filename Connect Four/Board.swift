@@ -163,6 +163,86 @@ class Board {
         return result
     }
     
+    func findMaxPotential(state: Marker.State) -> Int {
+        var maxPotential = 0
+        for y in 0..<height {
+            for x in 0..<width {
+                let m = board[x,y]
+                if m != nil && m!.state == state {
+                    
+                    var markers = findInDirection(state: state, x: x, y: y, offsetX: 0, offsetY: -1) + [m!] + findInDirection(state: state, x: x, y: y, offsetX: 0, offsetY: 1)
+                    if markers.count>maxPotential {
+                        maxPotential = markers.count
+                        if maxPotential>=4 {
+                            break
+                        }
+                    }
+                    markers = findInDirection(state: state, x: x, y: y, offsetX: -1, offsetY: 0) + [m!] + findInDirection(state: state, x: x, y: y, offsetX: 1, offsetY: 0)
+                    if markers.count>maxPotential {
+                        maxPotential = markers.count
+                        if maxPotential>=4 {
+                            break
+                        }
+                    }
+                    markers = findInDirection(state: state, x: x, y: y, offsetX: -1, offsetY: -1) + [m!] + findInDirection(state: state, x: x, y: y, offsetX: 1, offsetY: 1)
+                    if markers.count>maxPotential {
+                        maxPotential = markers.count
+                        if maxPotential>=4 {
+                            break
+                        }
+                    }
+                    markers = findInDirection(state: state, x: x, y: y, offsetX: 1, offsetY: -1) + [m!] + findInDirection(state: state, x: x, y: y, offsetX: -1, offsetY: 1)
+                    if markers.count>maxPotential {
+                        maxPotential = markers.count
+                        if maxPotential>=4 {
+                            break
+                        }
+                    }
+                }
+            }
+            if maxPotential>=4 {
+                break
+            }
+        }
+        return maxPotential
+    }
+    
+    func findMaxPotential(state: Marker.State, x: Int) -> Int {
+        var maxPotential = 0
+        var y = 0
+        while y<7 && board[x,y] == nil {
+            y = y + 1
+        }
+        y = y - 1
+
+        if y>=0 {
+            var markers = findInDirection(state: state, x: x, y: y, offsetX: 0, offsetY: -1) + findInDirection(state: state, x: x, y: y, offsetX: 0, offsetY: 1)
+            if markers.count>=maxPotential {
+                maxPotential = markers.count + 1
+            }
+            if maxPotential<4 {
+                markers = findInDirection(state: state, x: x, y: y, offsetX: -1, offsetY: 0) + findInDirection(state: state, x: x, y: y, offsetX: 1, offsetY: 0)
+                if markers.count>=maxPotential {
+                    maxPotential = markers.count + 1
+                }
+            }
+            if maxPotential<4 {
+                markers = findInDirection(state: state, x: x, y: y, offsetX: -1, offsetY: -1) + findInDirection(state: state, x: x, y: y, offsetX: 1, offsetY: 1)
+                if markers.count>=maxPotential {
+                    maxPotential = markers.count + 1
+                }
+            }
+            if maxPotential<4 {
+                markers = findInDirection(state: state, x: x, y: y, offsetX: 1, offsetY: -1) + findInDirection(state: state, x: x, y: y, offsetX: -1, offsetY: 1)
+                if markers.count>=maxPotential {
+                    maxPotential = markers.count + 1
+                }
+            }
+        }
+        return maxPotential
+
+    }
+    
     func debugBoard(debug: Bool? = nil) {
         if self.debug || (debug != nil && debug!) {
             
