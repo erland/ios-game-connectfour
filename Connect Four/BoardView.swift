@@ -107,8 +107,9 @@ class BoardView : SKSpriteNode, BoardObserver {
             markerView.position.y = cellSize!/2
         }
         addChild(markerView)
+        let duration : Double = Double((markerView.position.y-endPosition)/(7.0*cellSize!))
         if animations {
-            markerView.run(SKAction.move(to: CGPoint(x: markerView.position.x, y: endPosition), duration: 1))
+            markerView.run(SKAction.move(to: CGPoint(x: markerView.position.x, y: endPosition), duration: duration))
         }
     }
     
