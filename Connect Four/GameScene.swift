@@ -18,6 +18,10 @@ class GameScene: SKScene, BoardObserver {
     var marker : Marker?
     var markerView : MarkerView?
     
+    override func sceneDidLoad() {
+        localize()
+    }
+
     func setup(delegate: GameDelegate, board: Board, playerState: Marker.State) {
         self.gameDelegate = delegate
         self.playerState = playerState
@@ -87,14 +91,14 @@ class GameScene: SKScene, BoardObserver {
         if cellX>=0 && cellX<boardView!.board!.width {
             if boardView!.board!.board[cellX,0] == nil {
                 waitingForOpponent = true
-                instructionText?.text = "Waiting for opponent"
+                instructionText?.text = NSLocalizedString("waitingForOpponent", comment: "waitingForOpponent")
                 gameDelegate?.placeMarker(playerName: boardView!.board!.name, x: cellX, state: playerState!)
             }
         }
     }
     func opponentPlaceMarker(x: Int, state: Marker.State) {
         waitingForOpponent = false
-        instructionText?.text = "Place your marker"
+        instructionText?.text = NSLocalizedString("placeYourMarker", comment: "placeYourMarker")
         boardView!.board?.addMarker(state: state, x: x)
         gameDelegate?.placeMarkerConfirmed(playerName: boardView!.board!.name, x: x, state: state)
         DispatchQueue.global().asyncAfter(deadline: .now() + 1.0, execute: {
@@ -113,7 +117,7 @@ class GameScene: SKScene, BoardObserver {
 
     func readyForMarkerPlacement() {
         waitingForOpponent = false
-        instructionText?.text = "Place your marker"
+        instructionText?.text = NSLocalizedString("placeYourMarker", comment: "placeYourMarker")
         setupMarker(x: 3)
     }
     

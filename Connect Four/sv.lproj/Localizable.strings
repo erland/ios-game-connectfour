@@ -1,0 +1,19 @@
+/* 
+  Localizable.strings
+  Connect Four
+
+  Created by Erland Isaksson on 2019-08-08.
+  Copyright © 2019 Erland Isaksson. All rights reserved.
+*/
+"youWon" = "Du vann!";
+"youLost" = "Du förlorade";
+"itIsADraw" = "Oavgjort";
+"gameOver" = "Game Over";
+"waitingForOpponent" = "Väntar på motståndare";
+"selectOpponent" = "Välj motståndare";
+"placeYourMarker" = "Placera din bricka";
+"veryEasy" = "mycket enkel";
+"easy" = "enkel";
+"normal" = "normal";
+"hard" = "svår";
+"extreme" = "mycket svår";

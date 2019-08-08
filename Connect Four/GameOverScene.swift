@@ -15,6 +15,10 @@ class GameOverScene: SKScene {
     var playerState: Marker.State?
     var openedTime: TimeInterval?
     
+    override func sceneDidLoad() {
+        localize()
+    }
+    
     func setup(delegate: GameDelegate, board: Board, playerState: Marker.State) {
         self.gameDelegate = delegate
         self.playerState = playerState
@@ -28,11 +32,11 @@ class GameOverScene: SKScene {
         openedTime = NSDate().timeIntervalSince1970
         let winner = boardView!.board!.findWinner()
         if winner == nil {
-            winnerText?.text = "It's a draw"
+            winnerText?.text = NSLocalizedString("itIsADraw", comment: "itIsADraw")
         }else if winner == playerState {
-            winnerText?.text = "You won!"
+            winnerText?.text = NSLocalizedString("youWon", comment: "youWon")
         }else {
-            winnerText?.text = "You lost"
+            winnerText?.text = NSLocalizedString("youLost", comment: "youLost")
         }
         
     }

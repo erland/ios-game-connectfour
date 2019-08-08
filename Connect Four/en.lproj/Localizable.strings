@@ -1,0 +1,19 @@
+/* 
+  Localizable.strings
+  Connect Four
+
+  Created by Erland Isaksson on 2019-08-08.
+  Copyright © 2019 Erland Isaksson. All rights reserved.
+*/
+"youWon" = "You won!";
+"youLost" = "You lost";
+"itIsADraw" = "It is a draw";
+"gameOver" = "Game Over";
+"waitingForOpponent" = "Waiting for opponent";
+"selectOpponent" = "Select opponent";
+"placeYourMarker" = "Place your marker";
+"veryEasy" = "very easy";
+"easy" = "easy";
+"normal" = "normal";
+"hard" = "hard";
+"extreme" = "extreme";

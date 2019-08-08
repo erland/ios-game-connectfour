@@ -46,16 +46,16 @@ class GameViewController: UIViewController, GameDelegate {
         matchMakingScene = scene
         // Present the scene.
         skView.presentScene(scene)
-        veryEasyAIPlayer = RandomAIPlayer(name: "AI (very easy)")
-        matchMakingScene?.addOpponent(name: "AI (very easy)")
-        easyAIPlayer = AlphaBetaAIPlayer(name: "AI (easy)", depth: 1, delay: 0)
-        matchMakingScene?.addOpponent(name: "AI (easy)")
-        normalAIPlayer = AlphaBetaAIPlayer(name: "AI (normal)", depth: 2, delay: 0)
-        matchMakingScene?.addOpponent(name: "AI (normal)")
-        hardAIPlayer = AlphaBetaAIPlayer(name: "AI (hard)", depth: 3, delay: 0)
-        matchMakingScene?.addOpponent(name: "AI (hard)")
-        extremeAIPlayer = AlphaBetaAIPlayer(name: "AI (extreme)", depth: 5)
-        matchMakingScene?.addOpponent(name: "AI (extreme)")
+        veryEasyAIPlayer = RandomAIPlayer(name: "AI (\(NSLocalizedString("veryEasy", comment: "veryEasy")))")
+        matchMakingScene?.addOpponent(name: "AI (\(NSLocalizedString("veryEasy", comment: "veryEasy")))")
+        easyAIPlayer = AlphaBetaAIPlayer(name: "AI (\(NSLocalizedString("easy", comment: "easy")))", depth: 1, delay: 0)
+        matchMakingScene?.addOpponent(name: "AI (\(NSLocalizedString("easy", comment: "easy")))")
+        normalAIPlayer = AlphaBetaAIPlayer(name: "AI (\(NSLocalizedString("normal", comment: "normal")))", depth: 2, delay: 0)
+        matchMakingScene?.addOpponent(name: "AI (\(NSLocalizedString("normal", comment: "normal")))")
+        hardAIPlayer = AlphaBetaAIPlayer(name: "AI (\(NSLocalizedString("hard", comment: "hard")))", depth: 3, delay: 0)
+        matchMakingScene?.addOpponent(name: "AI (\(NSLocalizedString("hard", comment: "hard")))")
+        extremeAIPlayer = AlphaBetaAIPlayer(name: "AI (\(NSLocalizedString("extreme", comment: "extreme")))", depth: 5)
+        matchMakingScene?.addOpponent(name: "AI (\(NSLocalizedString("extreme", comment: "extreme")))")
 
         if let network = network {
             for player in network.players {
@@ -90,15 +90,15 @@ class GameViewController: UIViewController, GameDelegate {
     
     func selectedOpponent(player: String, state: Marker.State) {
         matchMakingScene = nil
-        if player == "AI (very easy)" {
+        if player == "AI (\(NSLocalizedString("veryEasy", comment: "veryEasy")))" {
             opponentPlayer = veryEasyAIPlayer
-        }else if player == "AI (easy)" {
+        }else if player == "AI (\(NSLocalizedString("easy", comment: "easy")))" {
             opponentPlayer = easyAIPlayer
-        }else if player == "AI (normal)" {
+        }else if player == "AI (\(NSLocalizedString("normal", comment: "normal")))" {
             opponentPlayer = normalAIPlayer
-        }else if player == "AI (hard)" {
+        }else if player == "AI (\(NSLocalizedString("hard", comment: "hard")))" {
             opponentPlayer = hardAIPlayer
-        }else if player == "AI (extreme)" {
+        }else if player == "AI (\(NSLocalizedString("extreme", comment: "extreme")))" {
             opponentPlayer = extremeAIPlayer
         }else {
             opponentPlayer = NetworkPlayer(network: network!, name: player)
